@@ -25,6 +25,7 @@ for (fotoNumara of fotoNumaralari) {
     //Her bir karta tıklandığında "kartTiklama" fonksiyonu çalışacak.
     yenikart.addEventListener("click", kartTiklama);
 }
+let sayac=0;
 
 function kartTiklama(olay) {
     //Tıklanan kartı seçilen olarak değişkene atayalım
@@ -75,6 +76,10 @@ function kartTiklama(olay) {
 
         acikKart.classList.remove("acik");
         secilenKart.classList.remove("acik");
+        let puan=document.querySelector('#esit');
+        sayac++;
+        puan.textContent =sayac;
+
 
         setTimeout(() => {
             acikKart.removeEventListener("click", kartTiklama);
