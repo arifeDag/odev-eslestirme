@@ -10,9 +10,41 @@ const kartTemplate = `
     </div>
 `;
 
-const fotoNumaralari = [10, 20, 30, 20, 10, 40, 40, 30];
+let randomImg = () => {
+  return Math.floor(Math.random() * 99) + 1;
+};
 
-for (fotoNumara of fotoNumaralari) {
+let fotoNumaralari = () => {
+  const fotoNumaralariInternal = [0, 0, 0, 0, 0, 0, 0, 0];
+
+  while (fotoNumaralariInternal.includes(0)) {
+
+
+
+    let randomResim = randomImg();
+
+    if (fotoNumaralariInternal.includes(randomResim))
+        continue;
+
+    let index1 = Math.floor(Math.random() * 8);
+    let index2 = Math.floor(Math.random() * 8);
+    if(index1==index2)
+        continue;
+
+    if (fotoNumaralariInternal[index1]!=0 || fotoNumaralariInternal[index2]!=0)
+        continue;
+
+    fotoNumaralariInternal[index1] = randomResim;
+    fotoNumaralariInternal[index2] = randomResim;
+    
+    
+
+  }
+
+  return fotoNumaralariInternal;
+};
+
+for (fotoNumara of fotoNumaralari()) {
   const yenikart = document.createElement("div");
   yenikart.innerHTML = kartTemplate;
   yenikart.classList.add("kart");
